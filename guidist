@@ -1,0 +1,36 @@
+from Tkinter import *
+# creating window
+root=Tk()
+root.title(" DELIVEX ") #naming the window
+root.geometry('600x600')
+def number():
+      no1=  int(no.get())
+      city= StringVar()
+      city=["xxx" for w in range(no1)]
+      for i in range(0, no1):
+        if i==0 :
+             label1=Label(root,text="ENTER DESTINATION",fg='red').grid(row=i+2,column=0)
+             city[i]=Entry(root,textvariable=city[i]).grid(row=i+2,column=5)
+        else :
+            label1=Label(root,text="ENTER CITY",fg='red').grid(row=i+2,column=0)
+            city[i]=Entry(root,textvariable=city[i]).grid(row=i+2,column=5)
+      button2=Button(root,text='PROCEED',command=number2(no1,city)).grid(row=1,column=2)
+
+def number2(no1,city):
+    cities= StringVar()
+    cities=["xxx" for w in range(no1)]
+
+    for i in range(no1):
+        cities[i]=city[i].get()
+        label3=Label(root,text="ENTER DESTINATION%s"%cities[i],fg='red').grid(row=i+2,column=0)
+
+
+  #changing size of window
+no=StringVar()
+no1=StringVar()
+label1=Label(root,text="ENTER THE NUMBER OF CITIES",fg='red').grid(row=0,column=0)
+no==Entry(root,textvariable=no).grid(row=0,column=2)
+app=Frame(root)
+app.grid()
+button1=Button(root,text='PROCEED',command=number).grid(row=1,column=2)
+root.mainloop()
